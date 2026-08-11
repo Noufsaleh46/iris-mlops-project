@@ -7,7 +7,7 @@ model = mlflow.sklearn.load_model("/app/model")
 
 @app.route("/",methods=["GET"])
 def home():
-   return jsonify({"message":"Iris Classification API is running"})
+   return jsonify({"message":"Iris Classification API is running - MLOps v2"})
 
 @app.route("/predict",methods=["POST"])
 def predict():
