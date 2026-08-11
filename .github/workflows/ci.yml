@@ -83,3 +83,12 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ghcr.io/noufsaleh46/iris-mlops-project:latest
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Render
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
